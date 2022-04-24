@@ -1,54 +1,79 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #25282A;
+  filter: drop-shadow(1px 8px 9px #000);
+  
+  width: 22.5vw;
+ 
+  height: 90vh;
+  border-radius: 35px;
 }
+.IpodScreen {
 
+  height: 40vh;
+  width: 20vw;
+ 
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 3%;
+
+}
 
 .IpodBody {
   position: relative;
-  background-color: #b5b5b5;
+  background-color: #25282A;
   display: flex;
   height: 45vh;
   justify-content: center;
   align-items: center;
-  width: 25vw;
+  width: 20vw;
+  border-radius: 35px;
+ 
 }
-.Wheel1 {
+#Wheel1 {
   position: absolute;
   height: 40vh;
   width: 20vw;
   border-radius: 50%;
   background-color: white;
 }
-.Wheel1 img {
+#Wheel1 img {
   height: 7.5vh;
   width: 4vw;
   position: absolute;
 }
 
-.Menu h1 {
+.Menu h1{
   position: absolute;
   left: 7rem;
-  top: -0.3rem;
-  color: #b5b5b5;
+  top: 0.5rem;
+  color: black;
+  
 }
 
 #img1 {
   top: 8rem;
   right: 0.5rem;
   color: #b5b5b5;
+  
+  
 }
 
 #img2 {
   left: 0.5rem;
-  top: 8rem;
+  top: 7.8rem;
 }
 
 #img3 {
+  height: 10vh;
   bottom: 0.7rem;
   right: 7.5rem;
 }
@@ -56,12 +81,16 @@ body {
 .Wheel2 {
   position: absolute;
   top: 6rem;
-  
+
   margin-left: auto;
   margin-right: auto;
   height: 20vh;
   width: 10vw;
   border-radius: 50%;
 
-  background-color: #b5b5b5;
+  background-color: #25282A;
+}
+
+ul {
+  list-style: none;
 }

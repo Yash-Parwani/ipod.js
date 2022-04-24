@@ -1,15 +1,13 @@
-import IpodBody from "./iPodBody";
+import "./index";
 
-function App() {
+import IpodBody from "./iPodBody";
+import IpodScreen from "./iPodScreen";
+
+export default function App() {
   return (
     <div className="App">
-      Hi
-
-      <IpodBody>
-        
-      </IpodBody>
+      <IpodScreen />
+      <IpodBody />
     </div>
   );
 }
-
-export default App;
