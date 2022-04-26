@@ -4,16 +4,15 @@ class IpodScreen extends React.Component {
   render() {
     return (
       <div className="IpodScreen">
-        
+        <div id="Left-screen">
           <h1>Ipod.js</h1>
           <ul>
             <li>Songs</li>
-            <li>Albums</li>
-            <li>Artists</li>
-            <li>Playlists</li>
+            <li>Games</li>
+            <li>About</li>
           </ul>
-       
-      
+        </div>
+        <div id="Right-screen"></div>
       </div>
     );
   }

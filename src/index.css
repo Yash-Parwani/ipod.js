@@ -10,21 +10,43 @@
   background-color: #25282A;
   filter: drop-shadow(1px 8px 9px #000);
   
-  width: 22.5vw;
+  width: 350px;
  
-  height: 90vh;
+  height: 670px;
   border-radius: 35px;
 }
 .IpodScreen {
 
-  height: 40vh;
+  height: 35vh;
   width: 20vw;
  
   display: flex;
-  flex-direction: column;
+
+  
   background-color: white;
   border-radius: 3%;
 
+}
+#Left-screen {
+     height: inherit;
+     width: 45%;
+}
+
+#Left-screen ul {
+  height: 28vh;
+  font-size: 1.4rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  padding: 0px;
+}
+#Right-screen {
+  height: inherit;
+  width: 55%;
+  background-image: url("https://images.pexels.com/photos/206359/pexels-photo-206359.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
 }
 
 .IpodBody {
@@ -40,8 +62,8 @@
 }
 #Wheel1 {
   position: absolute;
-  height: 40vh;
-  width: 20vw;
+  height: 300px;
+  width: 300px;
   border-radius: 50%;
   background-color: white;
 }
@@ -53,8 +75,8 @@
 
 .Menu h1{
   position: absolute;
-  left: 7rem;
-  top: 0.5rem;
+  left: 6.5rem;
+  top: 1.5rem;
   color: black;
   
 }
