@@ -38,16 +38,23 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
 
   padding: 0px;
 }
+#Left-screen li {
+  width: 8.5vw;
+}
+
+
 #Right-screen {
   height: inherit;
   width: 55%;
   background-image: url("https://images.pexels.com/photos/206359/pexels-photo-206359.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
 }
+
+
+
 
 .IpodBody {
   position: relative;

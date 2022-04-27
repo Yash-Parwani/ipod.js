@@ -1,11 +1,18 @@
-import "./index.css";
+import "./styles.css";
 
-
+import IpodBody from "./IpodBody";
+import IpodScreen from "./IpodScreen";
+import Songs from "./Songs"
+import About from "./About"
+import Games from "./Games"
 
 import ZingTouch from "zingtouch";
 
 import { ListGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+
+import {BrowserRouter as Router , Routes , Route, Link} from 'react-router-dom'
 
 import React from "react";
 
@@ -13,7 +20,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      activeItem: "Songs"
+      activeItem: "Songs",
+      address:"/songs"
     };
   }
 
@@ -27,23 +35,23 @@ class App extends React.Component {
 
       if (distanceFromLast >= 0) {
         clockwisechange++;
-        console.log(
-          "Value incremented of clockwisechange is ",
-          clockwisechange
-        );
+
         if (clockwisechange === 30) {
           clockwisechange = 0;
           if (this.state.activeItem === "Songs") {
             this.setState({
-              activeItem: "Games"
+              activeItem: "Games",
+              address:"/games"
             });
           } else if (this.state.activeItem === "Games") {
             this.setState({
-              activeItem: "About"
+              activeItem: "About",
+              address:"/about"
             });
           } else {
             this.setState({
-              activeItem: "Songs"
+              activeItem: "Songs",
+              address:"/songs"
             });
           }
         }
@@ -54,15 +62,18 @@ class App extends React.Component {
           anticlockwisechange = 0;
           if (this.state.activeItem === "Songs") {
             this.setState({
-              activeItem: "About"
+              activeItem: "About",
+              address:"/about"
             });
           } else if (this.state.activeItem === "About") {
             this.setState({
-              activeItem: "Games"
+              activeItem: "Games",
+              address:"/games"
             });
           } else {
             this.setState({
-              activeItem: "Songs"
+              activeItem: "Songs",
+              address:"/songs"
             });
           }
         }
@@ -70,56 +81,38 @@ class App extends React.Component {
     });
   };
 
-  Wheel2handler = () => {
-    console.log("Wheel2 is clicked");
-    const { activeItem } = this.state;
+  menuToHome = () =>{
+    const {address} = this.state;
 
-    if (activeItem === "Songs") {
-      console.log("Render Song component");
-    } else if (activeItem === "Games") {
-      console.log("render Games Component");
-    } else {
-      console.log("Render about component");
+    if(address === '/songs' || address === '/games' || address === '/about'){
+      // redirect back to home page
+      return "/"
     }
-  };
-  componentDidUpdate = () => {
-    this.rotateFunction();
-  };
+  }
+
 
   render() {
     return (
+      <Router>
       <div className="App">
         <div className="IpodScreen">
-          <div id="Left-screen">
-            <h1>Ipod.js</h1>
-            <ListGroup as="ul">
-              <ListGroup.Item
-                as="li"
-                className={this.state.activeItem === "Songs" ? "active" : ""}
-              >
-                Songs
-              </ListGroup.Item>
-              <ListGroup.Item
-                as="li"
-                className={this.state.activeItem === "Games" ? "active" : ""}
-              >
-                Games
-              </ListGroup.Item>
-              <ListGroup.Item
-                as="li"
-                className={this.state.activeItem === "About" ? "active" : ""}
-              >
-                About
-              </ListGroup.Item>
-            </ListGroup>
-          </div>
-          <div id="Right-screen"></div>
+          <Routes >
+              <Route path="/" exact element={<IpodScreen activeItem = {this.state.activeItem}/>} />
+              <Route path="/about" exact element={<About/>} />
+              <Route path="/games" exact element={<Games/>} />
+              <Route path="/songs" exact element={<Songs/>} />
+              
+          </Routes>
+         
         </div>
         <div className="IpodBody">
           <div id="Wheel1" onMouseOver={this.rotateFunction} draggable="false">
+
+            <Link to={this.menuToHome()} >
             <div className="Menu">
               <h1>Menu</h1>
             </div>
+            </Link>
             <div className="Forward">
               <img
                 alt="forward"
@@ -142,9 +135,12 @@ class App extends React.Component {
               />
             </div>
           </div>
-          <div className="Wheel2" onClick={this.Wheel2handler}></div>
+          <Link to={this.state.address} >
+          <div id="Wheel2" ></div>
+          </Link>
         </div>
       </div>
+      </Router>
     );
   }
 }
