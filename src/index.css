@@ -107,14 +107,12 @@
   right: 7.5rem;
 }
 
-.Wheel2 {
+#Wheel2 {
   position: absolute;
   top: 6rem;
-
-  margin-left: auto;
-  margin-right: auto;
-  height: 20vh;
-  width: 10vw;
+  right: 5rem;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
 
   background-color: #25282A;

@@ -1,7 +1,7 @@
-import "./styles.css";
+import "./index.css";
 
-import IpodBody from "./IpodBody";
-import IpodScreen from "./IpodScreen";
+import IpodBody from "./iPodBody";
+import IpodScreen from "./iPodScreen";
 import Songs from "./Songs"
 import About from "./About"
 import Games from "./Games"
