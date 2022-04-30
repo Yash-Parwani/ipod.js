@@ -10,22 +10,25 @@ class IpodScreen extends React.Component {
       <div className="IpodScreen">
         <div id="Left-screen">
           <h1>Ipod.js</h1>
-          <ListGroup as="ul">
+          <ListGroup as="ul" style={{ height: 200 }} variant="flush">
             <ListGroup.Item
               as="li"
               className={activeItem === "Songs" ? "active" : ""}
+              style={{ width: 100 }}
             >
               Songs
             </ListGroup.Item>
             <ListGroup.Item
               as="li"
               className={activeItem === "Games" ? "active" : ""}
+              style={{ width: 100 }}
             >
               Games
             </ListGroup.Item>
             <ListGroup.Item
               as="li"
               className={activeItem === "About" ? "active" : ""}
+              style={{ width: 100 }}
             >
               About
             </ListGroup.Item>
