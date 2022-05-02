@@ -1,4 +1,4 @@
-import "./index.css";
+import "../index.css";
 import { ListGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -7,7 +7,9 @@ class IpodScreen extends React.Component {
   render() {
     const { activeItem } = this.props;
     return (
+      // we will be dividing the main homescreen into two parts : left-screeen and right-screen
       <div className="IpodScreen">
+        {/* constents of left screen */}
         <div id="Left-screen">
           <h1>Ipod.js</h1>
           <ListGroup as="ul" style={{ height: 200 }} variant="flush">
@@ -34,6 +36,7 @@ class IpodScreen extends React.Component {
             </ListGroup.Item>
           </ListGroup>
         </div>
+        {/* contents of right screen */}
         <div id="Right-screen"></div>
       </div>
     );

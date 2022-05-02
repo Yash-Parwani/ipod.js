@@ -1,20 +1,28 @@
-import "./index.css";
+import "../index.css";
 
 
-import IpodScreen from "./IpodScreen";
+// importing all required dependencies
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import ZingTouch from "zingtouch";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+
+
+//importing all required components from src/components
+import IpodScreen from "./iPodScreen";
 import Songs from "./Songs";
 import About from "./About";
 import Games from "./Games";
-import Neele from "./assets/songs/Neele.mp3"
-
-import ZingTouch from "zingtouch";
 
 
-import "bootstrap/dist/css/bootstrap.min.css";
 
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-import React from "react";
+
+
+
+
 
 class App extends React.Component {
   constructor() {
@@ -30,9 +38,12 @@ class App extends React.Component {
 
  
  
-
+// function handling rotation of wheel when mouse moves over wheel 1 
   rotateFunction = () => {
+
+    // selecting the target element which is our Wheel1 , use ById only
     var target = document.getElementById("Wheel1");
+    //activating region on target
     var region = new ZingTouch.Region(target);
     let clockwisechange = 0;
     let anticlockwisechange = 0;
@@ -40,8 +51,9 @@ class App extends React.Component {
       let distanceFromLast = e.detail.distanceFromLast;
 
       if (distanceFromLast >= 0) {
+        // handling clockwise rotation
         clockwisechange++;
-
+       
         if (clockwisechange === 30) {
           clockwisechange = 0;
           if (this.state.activeItem === "Songs") {
@@ -62,6 +74,7 @@ class App extends React.Component {
           }
         }
       } else {
+        // handling anticlockwise rotation
         console.log("Anticlockwise");
         anticlockwisechange++;
         if (anticlockwisechange === 30) {
@@ -86,7 +99,7 @@ class App extends React.Component {
       }
     });
   };
-
+// function to bring back to home page/component when we are on some other page/component
   menuToHome = () => {
     const { address } = this.state;
 
@@ -96,21 +109,13 @@ class App extends React.Component {
     }
   };
 
-  unlock = () => {
-    if (this.state.isLocked) {
-      this.setState({
-        isLocked: false
-      });
-      this.setState({
-        address: "/home"
-      });
-    }
-  };
+
   render() {
     return (
       <Router>
         <div className="App">
-          <div className="IpodScreen">
+          <div className="Screen">
+            {/* defining routes for only the screen part */}
             <Routes>
               <Route
                 path="/"
@@ -155,6 +160,7 @@ class App extends React.Component {
                 />
               </div>
             </div>
+            {/* Linking Wheel2 to Routes to render corresponding component */}
             <Link to={this.state.address}>
               <div id="Wheel2"></div>
             </Link>
