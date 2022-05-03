@@ -54,6 +54,22 @@ ul {
 }
 
 
+/* styling for song screen */
+#song-img{
+  width: 200px;
+  height: 150px;
+  border-radius: 35px;
+}
+
+/* styling for about screen */
+#Profile{
+width:300px;
+
+}
+#Profile img{
+width: 200px;
+border-radius: 50%;
+}
 
 /* general body styling */
 
@@ -120,5 +136,4 @@ ul {
 
   background-color: #25282A;
 }
-
 

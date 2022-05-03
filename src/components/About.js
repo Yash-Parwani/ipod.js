@@ -38,8 +38,8 @@ class About extends React.Component {
           <h3> {this.state.time} </h3>
         </div>
 
-        <div id="Profile" style={{border: "2px solid red"}}>
-          <img alt="Profile"style={{width : 180 , borderRadius : 100,}} src={Profile} />
+        <div id="Profile" >
+          <img alt="Profile"src={Profile} />
         </div>
 
         <h4>Created by </h4>

@@ -30,6 +30,7 @@ class App extends React.Component {
     this.state = {
       activeItem: "Songs",
       address: "/songs",
+      isPlaying: true
       
     };
  
@@ -110,6 +111,28 @@ class App extends React.Component {
   };
 
 
+  playPauseToggle = () =>{
+    const {address } = this.state;
+    console.log("IN play pause toggle")
+
+    if(address === '/songs'){
+       if(this.state.isPlaying){
+         this.setState({
+           isPlaying : false
+         },()=>{
+           console.log("State set successfully")
+         });
+       }
+       else{
+         this.setState({
+           isPlaying : true
+         },()=>{
+          console.log("State set successfully")
+        })
+       }
+    }
+  }
+
   render() {
     return (
       <Router>
@@ -124,7 +147,7 @@ class App extends React.Component {
               />
               <Route path="/about" exact element={<About />} />
               <Route path="/games" exact element={<Games />} />
-              <Route path="/songs" exact element={<Songs title={this.state.title} link={this.state.link} artist = {this.state.artist} />} />
+              <Route path="/songs" exact element={<Songs isPlaying={this.state.isPlaying} />} />
             </Routes>
           </div>
           <div className="IpodBody">
@@ -152,11 +175,12 @@ class App extends React.Component {
                   src="https://cdn-icons-png.flaticon.com/512/4029/4029036.png"
                 />
               </div>
-              <div className="PlayPause" onClick={this.playPauseToggle}>
+              <div className="PlayPause" >
                 <img
+                  src="https://cdn-icons.flaticon.com/png/512/5725/premium/5725942.png?token=exp=1651548963~hmac=07e99aa1c0a3915c80244ef17a3ec3ad"
+                  onClick={this.playPauseToggle}
                   alt="playpause"
                   id="img3"
-                  src="https://cdn-icons.flaticon.com/png/512/5725/premium/5725942.png?token=exp=1650791290~hmac=a6d5daf4ce40eac04569cb5a69d46a3b"
                 />
               </div>
             </div>
