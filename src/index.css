@@ -71,6 +71,10 @@ width: 200px;
 border-radius: 50%;
 }
 
+#Settings img{
+  width: 200px;
+}
+
 /* general body styling */
 
 .IpodBody {
@@ -129,7 +133,7 @@ border-radius: 50%;
 #Wheel2 {
   position: absolute;
   top: 100px;
-  right: 80px;
+  right: 26%;
   height: 150px;
   width: 150px;
   border-radius: 50%;

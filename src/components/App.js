@@ -15,6 +15,7 @@ import IpodScreen from "./iPodScreen";
 import Songs from "./Songs";
 import About from "./About";
 import Games from "./Games";
+import Settings from "./Settings";
 
 
 
@@ -31,15 +32,15 @@ class App extends React.Component {
       activeItem: "Songs",
       address: "/songs",
       isPlaying: true
-      
-    };
- 
-  }
- 
 
- 
- 
-// function handling rotation of wheel when mouse moves over wheel 1 
+    };
+
+  }
+
+
+
+
+  // function handling rotation of wheel when mouse moves over wheel 1 
   rotateFunction = () => {
 
     // selecting the target element which is our Wheel1 , use ById only
@@ -54,7 +55,7 @@ class App extends React.Component {
       if (distanceFromLast >= 0) {
         // handling clockwise rotation
         clockwisechange++;
-       
+
         if (clockwisechange === 30) {
           clockwisechange = 0;
           if (this.state.activeItem === "Songs") {
@@ -64,10 +65,19 @@ class App extends React.Component {
             });
           } else if (this.state.activeItem === "Games") {
             this.setState({
+              activeItem: "Settings",
+              address: "/settings"
+            });
+          }
+
+          else if (this.state.activeItem === "Settings") {
+            this.setState({
               activeItem: "About",
               address: "/about"
             });
-          } else {
+          }
+          
+          else if(this.state.activeItem === "About"){
             this.setState({
               activeItem: "Songs",
               address: "/songs"
@@ -85,12 +95,22 @@ class App extends React.Component {
               activeItem: "About",
               address: "/about"
             });
-          } else if (this.state.activeItem === "About") {
+          } 
+          
+          else if (this.state.activeItem === "About") {
+            this.setState({
+              activeItem: "Settings",
+              address: "/settings"
+            });
+          }
+          else if (this.state.activeItem === "Settings") {
             this.setState({
               activeItem: "Games",
               address: "/games"
             });
-          } else {
+          }
+         
+          else if (this.state.activeItem === "Games"){
             this.setState({
               activeItem: "Songs",
               address: "/songs"
@@ -100,36 +120,36 @@ class App extends React.Component {
       }
     });
   };
-// function to bring back to home page/component when we are on some other page/component
+  // function to bring back to home page/component when we are on some other page/component
   menuToHome = () => {
     const { address } = this.state;
 
-    if (address === "/songs" || address === "/games" || address === "/about") {
+    if (address === "/songs" || address === "/games" || address === "/about"|| address ==='/settings') {
       // redirect back to home page
       return "/";
     }
   };
 
 
-  playPauseToggle = () =>{
-    const {address } = this.state;
+  playPauseToggle = () => {
+    const { address } = this.state;
     console.log("IN play pause toggle")
 
-    if(address === '/songs'){
-       if(this.state.isPlaying){
-         this.setState({
-           isPlaying : false
-         },()=>{
-           console.log("State set successfully")
-         });
-       }
-       else{
-         this.setState({
-           isPlaying : true
-         },()=>{
+    if (address === '/songs') {
+      if (this.state.isPlaying) {
+        this.setState({
+          isPlaying: false
+        }, () => {
+          console.log("State set successfully")
+        });
+      }
+      else {
+        this.setState({
+          isPlaying: true
+        }, () => {
           console.log("State set successfully")
         })
-       }
+      }
     }
   }
 
@@ -147,7 +167,9 @@ class App extends React.Component {
               />
               <Route path="/about" exact element={<About />} />
               <Route path="/games" exact element={<Games />} />
+              <Route path="/settings" exact element={<Settings />} />
               <Route path="/songs" exact element={<Songs isPlaying={this.state.isPlaying} />} />
+              
             </Routes>
           </div>
           <div className="IpodBody">

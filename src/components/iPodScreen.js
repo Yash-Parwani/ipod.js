@@ -27,6 +27,16 @@ class IpodScreen extends React.Component {
             >
               Games
             </ListGroup.Item>
+
+            <ListGroup.Item
+              as="li"
+              className={activeItem === "Settings" ? "active" : ""}
+              style={{ width: 100 }}
+            >
+              Settings
+            </ListGroup.Item>
+            
+            
             <ListGroup.Item
               as="li"
               className={activeItem === "About" ? "active" : ""}
