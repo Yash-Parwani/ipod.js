@@ -14,6 +14,7 @@ class Games extends React.Component {
       let today = new Date();
       let Time = today.getHours() + ":" + today.getMinutes();
 
+
       this.setState({ time: Time });
     }, 1000);
   }

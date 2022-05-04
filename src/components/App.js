@@ -18,7 +18,7 @@ import Games from "./Games";
 import Settings from "./Settings";
 
 
-
+import PlayPause from "../assets/images/pause-play.png"
 
 
 
@@ -56,7 +56,7 @@ class App extends React.Component {
         // handling clockwise rotation
         clockwisechange++;
 
-        if (clockwisechange === 30) {
+        if (clockwisechange % 25 === 0) {
           clockwisechange = 0;
           if (this.state.activeItem === "Songs") {
             this.setState({
@@ -88,7 +88,7 @@ class App extends React.Component {
         // handling anticlockwise rotation
         console.log("Anticlockwise");
         anticlockwisechange++;
-        if (anticlockwisechange === 30) {
+        if (anticlockwisechange  % 25 === 0) {
           anticlockwisechange = 0;
           if (this.state.activeItem === "Songs") {
             this.setState({
@@ -199,7 +199,7 @@ class App extends React.Component {
               </div>
               <div className="PlayPause" >
                 <img
-                  src="https://cdn-icons.flaticon.com/png/512/5725/premium/5725942.png?token=exp=1651548963~hmac=07e99aa1c0a3915c80244ef17a3ec3ad"
+                  src={PlayPause}
                   onClick={this.playPauseToggle}
                   alt="playpause"
                   id="img3"

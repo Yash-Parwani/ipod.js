@@ -14,6 +14,7 @@ class Settings extends React.Component {
       let today = new Date();
       let Time = today.getHours() + ":" + today.getMinutes();
 
+    
       this.setState({ time: Time });
     }, 1000);
   }
@@ -36,9 +37,9 @@ class Settings extends React.Component {
           <h3> Ipod </h3>
           <h3> {this.state.time} </h3>
         </div>
-         <h1> Settings </h1>
+         
         <div id="Settings" >
-           <img alt="Settings"src="https://cdn.iconscout.com/icon/free/png-256/apple-settings-1-493162.png" />
+           <img alt="Settings"src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Windows_Settings_app_icon.png" />
         </div>
 
         
